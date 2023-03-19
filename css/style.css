@@ -21,10 +21,36 @@
 /* BASE STYLES
 /*******************************************/
 
-body {
-
+html {
+     font-size:62.5%;
 }
 
+body {
+     background-color:#becfec;
+}
+
+.form {
+     font-size:2rem;
+     text-align:center;
+     background-color:#6690d2;
+     border: 10px solid #e9eff9;
+     width:30%;
+     margin: 15% auto;
+}
+
+form {
+     margin: 10% 0;
+}
+
+form *{
+     padding-right:5%
+}
+
+ button{
+     margin-bottom:5%;
+     background-color:#becfec;
+    
+}
 
 /******************************************
 /* LAYOUT
