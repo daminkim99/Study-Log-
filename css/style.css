@@ -38,6 +38,7 @@ body {
      margin: 15% auto;
 }
 
+
 form {
      margin: 10% 0;
 }
@@ -50,6 +51,63 @@ form *{
      margin-bottom:5%;
      background-color:#becfec;
     
+}
+
+.uniForm {
+     font-size:2rem;
+     text-align:center;
+     background-color:#6690d2;
+     border: 10px solid #e9eff9;
+     width: 680px;
+     margin: 15% auto;
+     height: 350px;
+     display: flex;
+     flex-direction: column;
+     padding-right: 0;
+} 
+
+.uniForm form {
+     display: grid;
+     grid-template-columns: 1fr 5fr 1fr 5fr;
+     gap: 2rem;
+     margin: 0;
+     border: 0;
+     padding: 40px 20px 20px 20px;
+}
+
+.uniForm form label {
+     padding-right: 0;
+     width: 0%;
+}
+
+.s1 {
+     display: flex;
+     width: 100%;
+     justify-content: space-around;
+     height: 80%;
+    
+     
+}
+
+.uniForm input[type=text] {
+    padding: 0;
+    height: 60%;
+    border-radius: 10px;
+    padding: 5px;
+    
+}
+
+.uniForm .submit {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.submit button {
+     padding: 10px 20px;
+     border-radius: 10px;
 }
 
 /******************************************
