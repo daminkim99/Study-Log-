@@ -122,5 +122,36 @@ footer {
 }
 
 /******************************************
-/* ADDITIONAL STYLES
+/* ADDITIONAL STYLES for 100DEVS FORM 
 /*******************************************/
+
+.hDevsForm{
+     height: 100vh;
+     display:flex;
+     flex-direction: column;
+     justify-content:space-between;
+     font-size:1.5rem;
+}
+.navbar ul{
+     list-style:none;
+     font-size:4rem;
+     display:flex;
+     justify-content:space-between;
+}
+
+footer{
+     display:flex;
+     justify-content:center;
+}
+
+.labelReset{
+     padding-right:2px;
+     padding-left: 20px;
+}
+
+/* this shaeki i flex and the form box very big  */
+
+.main1 form{
+     display:flex;
+     flex:1;
+}

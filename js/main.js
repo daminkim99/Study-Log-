@@ -22,6 +22,9 @@ document.getElementById('button').addEventListener('click', () => {
             } else {
             x.style.display = "none";
             } 
+    } else if (userPick ==="hDevs"){
+        
+
     }
         
 })
