@@ -151,7 +151,42 @@ footer{
 
 /* this shaeki i flex and the form box very big  */
 
+
 .main1 form{
      display:flex;
      flex:1;
+     /*just added some invisible borders to get the form off the edge of the screen*/
+     border-left: 50px solid rgba(0,0,0,0);
+     border-right: 50px solid rgba(0,0,0,0);
 }
+
+
+/* fixed the annoying ass gae shaekis so that they're smaller again*/
+
+.main1 .date, .day, .progress {
+    height: 50px;
+}
+
+
+/*just wanted to put the text and the input side by side :3 you can delete if you want to */
+
+.timer, .anki, .codewars {
+     display: flex;
+     height: 25px;
+
+}
+
+
+/* put text and checkbox side by side and gave them some gaps*/
+
+.anki .labelReset, .codewars .labelReset {
+     display: flex;
+     align-items: center;
+     padding-right: 10px;
+}
+
+.timer input {
+     width: 60px;
+     padding-right: 0px;
+}
+

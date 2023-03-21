@@ -46,7 +46,7 @@
 		</div>
 
 		<!-- form for 100Devs -->
-		<div class="hDevsForm">
+		<div class="hDevsForm" id="hDevsForm">
 			<header class="header">
 				<nav class="navbar">
 					<ul>
@@ -58,18 +58,22 @@
 			</header>
 			<div class="main1">
 				<form action="#">
-					<input type="date">
-					<select name="day" id="day-select">
-						<option value="">--Choose the day--</option>
-						<option value="Monday">Monday</option>
-						<option value="Tuesday">Tuesday</option>
-						<option value="Wednesday">Wednesday</option>
-						<option value="Thursday">Thursday</option>
-						<option value="Friday">Friday</option>
-						<option value="Saturday">Saturday</option>
-						<option value="Sunday">Sunday</option>
-					</select>
-					<input type="text" placeholder="progress">
+					<div class="date"><input type="date"></div>
+					<div class="day">
+						<select name="day" id="day-select">
+							<option value="">--Choose the day--</option>
+							<option value="Monday">Monday</option>
+							<option value="Tuesday">Tuesday</option>
+							<option value="Wednesday">Wednesday</option>
+							<option value="Thursday">Thursday</option>
+							<option value="Friday">Friday</option>
+							<option value="Saturday">Saturday</option>
+							<option value="Sunday">Sunday</option>
+						</select>
+					</div>
+					<div class="progress">
+						<input type="text" placeholder="progress">
+					</div>
 					<div class="anki">
 						<label for="anki" class="labelReset">Anki</label>
 						<input type="checkbox" id="anki" name="anki">

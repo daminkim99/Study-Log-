@@ -7,6 +7,16 @@ if (x.style.display === "none") {
     x.style.display = "none";
     } 
 
+//make University course form invisible
+const y = document.getElementById('hDevsForm')
+if (y.style.display === "none") {
+    y.style.display = "block";
+    } else {
+    y.style.display = "none";
+    } 
+
+
+
 document.getElementById('button').addEventListener('click', () => {
     //saves the userpick in a variable userPick before the div gets wiped out 
     let userPick = document.querySelector('input[name="usage"]:checked').value
@@ -23,7 +33,13 @@ document.getElementById('button').addEventListener('click', () => {
             x.style.display = "none";
             } 
     } else if (userPick ==="hDevs"){
-        
+
+    // if user chooses "100Devs", make the 100devs form appear
+        if (y.style.display === "none") {
+            y.style.display = "block";
+            } else {
+            y.style.display = "none";
+            } 
 
     }
         
