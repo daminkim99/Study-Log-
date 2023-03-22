@@ -15,8 +15,18 @@ if (y.style.display === "none") {
     y.style.display = "none";
     } 
 
+//make table invisible
+const z = document.getElementById('logTable')
+if (z.style.display === "none") {
+    z.style.display = "block";
+    } else {
+    z.style.display = "none";
+    } 
+
+
+
 document.getElementById('button').addEventListener('click', () => {
-    //saves the userpick in a variable userPick before the div gets wiped out 
+    //saves the userpick in a constiable userPick before the div gets wiped out 
     let userPick = document.querySelector('input[name="usage"]:checked').value
     //this is just test so can delete 
     console.log(userPick)
@@ -62,9 +72,9 @@ document.getElementById('button2').addEventListener('click', () => {
 })
 
 //adds smurf to the 100Devs button upon submitting daily log
-document.querySelector('#hDevsButton').addEventListener('click', saveInfo)
+document.getElementById('hDevsButton').addEventListener('click', () => {
+    
 
-function saveInfo(){
     let date = document.querySelector('input[type="date"]').value
     let day = document.getElementById('day-select').value
     let progress= document.querySelector('#progress').value
@@ -75,4 +85,34 @@ function saveInfo(){
     //saves the information collected in an array 
     let dayinfo= (`${date} ${day} ${progress} ${anki} ${codewars} ${pomodoro}`).split(' ')
     localStorage.setItem(date, dayinfo)
-}
+
+
+/*
+
+
+    //imma have to add a table ...
+
+    const tableBody = document.querySelector("#logTable tbody");
+
+    // insert new row to the body of the table
+    const newRow = tableBody.insertRow();
+
+    // Insert cells into the row
+    const dateCell = newRow.insertCell(0);
+    const dayCell = newRow.insertCell(1);
+    const progressCell = newRow.insertCell(2);
+    const ankiCell = newRow.insertCell(3);
+    const codewarsCell = newRow.insertCell(4);
+    const pomodoroCell = newRow.insertCell(5);
+
+    // Set the cell values
+    dateCell.textContent = date;
+    dayCell.textContent = dayinfo[1];
+    progressCell.textContent = dayinfo[2];
+    ankiCell.textContent = dayinfo[3];
+    codewarsCell.textContent = dayinfo[4];
+    pomodoroCell.textContent = dayinfo[5];
+
+*/
+})
+
