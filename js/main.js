@@ -1,4 +1,3 @@
-
 //make University course form invisible
 const x = document.getElementById('uni')
 if (x.style.display === "none") {
@@ -76,4 +75,22 @@ function saveInfo(){
     //saves the information collected in an array 
     let dayinfo= (`${date} ${day} ${progress} ${anki} ${codewars} ${pomodoro}`).split(' ')
     localStorage.setItem(date, dayinfo)
+
+    //selecet body of the table 
+    const tableBody = document.querySelector("#logTable tbody");
+    const newRow = tableBody.insertRow();
+    // Insert cells into the row
+    const dateCell = newRow.insertCell(0);
+    const dayCell = newRow.insertCell(1);
+    const progressCell = newRow.insertCell(2);
+    const ankiCell = newRow.insertCell(3);
+    const codewarsCell = newRow.insertCell(4);
+    const pomodoroCell = newRow.insertCell(5);
+    // Set the cell values
+    dateCell.textContent = date;
+    dayCell.textContent = dayinfo[1];
+    progressCell.textContent = dayinfo[2];
+    ankiCell.textContent = dayinfo[3];
+    codewarsCell.textContent = dayinfo[4];
+    pomodoroCell.textContent = dayinfo[5];
 }
