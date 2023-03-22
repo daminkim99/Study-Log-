@@ -64,6 +64,7 @@ document.getElementById('button2').addEventListener('click', () => {
 //adds smurf to the 100Devs button upon submitting daily log
 document.querySelector('#hDevsButton').addEventListener('click', saveInfo)
 
+//saves values of the user input's daily log 
 function saveInfo(){
     let date = document.querySelector('input[type="date"]').value
     let day = document.getElementById('day-select').value
