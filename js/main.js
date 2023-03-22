@@ -15,8 +15,6 @@ if (y.style.display === "none") {
     y.style.display = "none";
     } 
 
-
-
 document.getElementById('button').addEventListener('click', () => {
     //saves the userpick in a variable userPick before the div gets wiped out 
     let userPick = document.querySelector('input[name="usage"]:checked').value
@@ -63,3 +61,18 @@ document.getElementById('button2').addEventListener('click', () => {
     
 })
 
+//adds smurf to the 100Devs button upon submitting daily log
+document.querySelector('#hDevsButton').addEventListener('click', saveInfo)
+
+function saveInfo(){
+    let date = document.querySelector('input[type="date"]').value
+    let day = document.getElementById('day-select').value
+    let progress= document.querySelector('#progress').value
+    let anki= document.getElementById('anki').checked ? 'checked':'unchecked'
+    let codewars= document.getElementById('codewars').checked ? 'checked':'unchecked'
+    let pomodoro =  document.querySelector('#pomsession').value
+    
+    //saves the information collected in an array 
+    let dayinfo= (`${date} ${day} ${progress} ${anki} ${codewars} ${pomodoro}`).split(' ')
+    localStorage.setItem(date, dayinfo)
+}

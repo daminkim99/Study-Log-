@@ -72,11 +72,11 @@
 						</select>
 					</div>
 					<div class="progress">
-						<input type="text" placeholder="progress">
+						<input id ="progress" type="text" placeholder="progress">
 					</div>
 					<div class="anki">
 						<label for="anki" class="labelReset">Anki</label>
-						<input type="checkbox" id="anki" name="anki">
+						<input type="checkbox" id="anki" name="anki" value="yes">
 					</div>
 					<div class="codewars">
 						<label for="codewars" class="labelReset">Codewars</label>
@@ -86,7 +86,7 @@
 						<label for="pomsession" class="labelReset">Num of pomodoro sessions (0-25): </label>
 						<input type="number" id="pomsession" name="pomsession" min="0" max="25">
 					</div>
-					<button type="button">Submit</button>
+					<button type="button" id="hDevsButton">Submit</button>
 				</form>
 			</div>
 			<footer>
