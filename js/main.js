@@ -14,6 +14,13 @@ if (y.style.display === "none") {
     y.style.display = "none";
     } 
 
+    //make a variable dates to store the keys of the dates in an array for use later 
+    let dates=[]
+
+    for(let i=0; i<localStorage.length;i++){
+        dates.push(localStorage.key(i))
+    }
+
 document.getElementById('button').addEventListener('click', () => {
     //saves the userpick in a variable userPick before the div gets wiped out 
     let userPick = document.querySelector('input[name="usage"]:checked').value
@@ -39,7 +46,25 @@ document.getElementById('button').addEventListener('click', () => {
             } 
 
     }
-        
+
+    //sort the dates in calendar order 
+    dates = dates.sort()
+  
+
+    // retrieve the info that was already in the localStorage
+    for(let i=0; i<dates.length;i++){
+        //creates a tr for each key in the local storage 
+        const tr=document.createElement('tr')
+        document.querySelector("#logTable tbody").appendChild(tr)
+        //creates a td for each of the rows 
+        for (let j=0;j<=5; j++){
+            const td=document.createElement('td')
+            let value = localStorage.getItem(dates[i])
+            td.textContent = value.split(',')[j]
+        //appends each td to the tr 
+            tr.appendChild(td)
+        }
+    }
 })
 
 //getting values from Course form
@@ -63,6 +88,8 @@ document.getElementById('button2').addEventListener('click', () => {
 //adds smurf to the 100Devs button upon submitting daily log
 document.querySelector('#hDevsButton').addEventListener('click', saveInfo)
 
+
+
 //saves values of the user input's daily log 
 function saveInfo(){
     let date = document.querySelector('input[type="date"]').value
@@ -75,6 +102,9 @@ function saveInfo(){
     //saves the information collected in an array 
     let dayinfo= (`${date} ${day} ${progress} ${anki} ${codewars} ${pomodoro}`).split(' ')
     localStorage.setItem(date, dayinfo)
+
+    //adds the newly created daily log to the dates array
+    dates.push(date)
 
     //selecet body of the table 
     const tableBody = document.querySelector("#logTable tbody");
@@ -94,3 +124,19 @@ function saveInfo(){
     codewarsCell.textContent = dayinfo[4];
     pomodoroCell.textContent = dayinfo[5];
 }
+
+
+// //THIS IS THE ALTERNATE FOR LINE 109-125
+
+//     //create a new row to insert user input 
+//     const newRow=document.createElement('tr')
+//     document.querySelector("#logTable tbody").appendChild(newRow)
+
+//     //loops through and creates td to input user info in corrresponding columns
+//     for (let j=0;j<=5; j++){
+//         const newData=document.createElement('td')
+//         newData.textContent = dayinfo[j]
+//     //appends each td to the tr 
+//         newRow.appendChild(newData)
+//     } 
+// }
