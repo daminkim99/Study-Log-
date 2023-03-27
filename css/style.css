@@ -1,6 +1,7 @@
 /* Box Model Hack */
 * {
      box-sizing: border-box;
+     font-family: 'Lato', sans-serif;
 }
 
 /* Clear fix hack */
@@ -32,11 +33,55 @@ body {
 .form {
      font-size:2rem;
      text-align:center;
-     background-color:#6690d2;
-     border: 10px solid #e9eff9;
-     width:30%;
+     background-color: rgba(255, 255, 255, 0.508);
+     border: 2px solid rgb(249, 247, 247);
+     border-radius: 10px;
+     width: 500px;
+     height: 300px;
      margin: 15% auto;
-     
+     box-shadow: #6690d2 0px 2px 4px;  
+}
+
+.form h2 {
+     border-top: 20px solid rgba(0,0,0,0);
+}
+/* decorate radio buttons*/
+
+.form [type="radio"] {
+     appearance: none;
+     border: max(2px, 0.1em) solid gray;
+     border-radius: 50%;
+     width: 2.2rem;
+     height: 2.2rem;
+     transition: border 0.5s ease-in-out;
+     vertical-align: middle;
+}
+
+/* button turns blue when clicked*/
+
+.form [type="radio"]:checked {
+     border: 0.4em solid #6690d2;
+   }
+
+.form form label {
+     font-size: 2.2rem;
+     vertical-align: middle;
+}
+
+/* submit button decoration*/
+.form button {
+     margin-bottom:5%;
+     padding: 10px 40px;
+     border: 2px solid #687285;
+     color: #282c33;
+     border-radius: 30px;
+     background-color: rgba(255, 255, 255, 0.508);
+}
+
+.form button:hover {
+     background-color:#becfec;
+     transition: 0.3s;
+     border: 2px outset #687285;
 }
 
 
@@ -48,13 +93,6 @@ form * {
      padding-right:5%
 }
 
-
-
- button{
-     margin-bottom:5%;
-     background-color:#becfec;
-    
-}
 
 .uniForm {
      font-size:2rem;
@@ -113,16 +151,6 @@ form * {
      border-radius: 10px;
 }
 
-/******************************************
-/* LAYOUT
-/*******************************************/
-header {
-
-}
-
-footer {
-
-}
 
 /******************************************
 /* ADDITIONAL STYLES for 100DEVS FORM 
@@ -135,6 +163,15 @@ footer {
      justify-content:space-between;
      font-size:1.5rem;
 
+}
+
+.main1 {
+     margin: 10% 0;
+}
+
+.main1 form {
+     margin: 0;
+     
 }
 .navbar ul{
      list-style:none;
