@@ -14,6 +14,13 @@ if (y.style.display === "none") {
     y.style.display = "none";
     } 
 
+    //make a variable dates to store the keys of the dates in an array for use later 
+    let dates=[]
+
+    for(let i=0; i<localStorage.length;i++){
+        dates.push(localStorage.key(i))
+    }
+
 document.getElementById('button').addEventListener('click', () => {
     //saves the userpick in a variable userPick before the div gets wiped out 
     let userPick = document.querySelector('input[name="usage"]:checked').value
@@ -39,7 +46,28 @@ document.getElementById('button').addEventListener('click', () => {
             } 
 
     }
-        
+
+    //show data from local storage
+    showTable(dates)
+/*
+    //sort the dates in calendar order 
+    dates = dates.sort()
+  
+
+    // retrieve the info that was already in the localStorage
+    for(let i=0; i<dates.length;i++){
+        //creates a tr for each key in the local storage 
+        const tr=document.createElement('tr')
+        document.querySelector("#logTable tbody").appendChild(tr)
+        //creates a td for each of the rows 
+        for (let j=0;j<=5; j++){
+            const td=document.createElement('td')
+            let value = localStorage.getItem(dates[i])
+            td.textContent = value.split(',')[j]
+        //appends each td to the tr 
+            tr.appendChild(td)
+        }
+    }*/
 })
 
 //getting values from Course form
@@ -63,8 +91,14 @@ document.getElementById('button2').addEventListener('click', () => {
 //adds smurf to the 100Devs button upon submitting daily log
 document.querySelector('#hDevsButton').addEventListener('click', saveInfo)
 
+
+
 //saves values of the user input's daily log 
 function saveInfo(){
+
+    //if all the required fields are filled out
+     
+
     let date = document.querySelector('input[type="date"]').value
     let day = document.getElementById('day-select').value
     let progress= document.querySelector('#progress').value
@@ -72,25 +106,74 @@ function saveInfo(){
     let codewars= document.getElementById('codewars').checked ? 'checked':'unchecked'
     let pomodoro =  document.querySelector('#pomsession').value
     
+
+    if (date && day && progress && pomodoro)  {
+
+    
     //saves the information collected in an array 
     let dayinfo= (`${date} ${day} ${progress} ${anki} ${codewars} ${pomodoro}`).split(' ')
     localStorage.setItem(date, dayinfo)
 
-    //selecet body of the table 
-    const tableBody = document.querySelector("#logTable tbody");
-    const newRow = tableBody.insertRow();
-    // Insert cells into the row
-    const dateCell = newRow.insertCell(0);
-    const dayCell = newRow.insertCell(1);
-    const progressCell = newRow.insertCell(2);
-    const ankiCell = newRow.insertCell(3);
-    const codewarsCell = newRow.insertCell(4);
-    const pomodoroCell = newRow.insertCell(5);
-    // Set the cell values
-    dateCell.textContent = date;
-    dayCell.textContent = dayinfo[1];
-    progressCell.textContent = dayinfo[2];
-    ankiCell.textContent = dayinfo[3];
-    codewarsCell.textContent = dayinfo[4];
-    pomodoroCell.textContent = dayinfo[5];
+    //adds the newly created daily log to the dates array
+    dates.push(date)
+
+
+    
+
+    //remove existing table
+    const table = document.getElementById('logTable');
+    let count = 0;
+    table.querySelectorAll('tr').forEach(row => {
+        if (count === 0) {
+            count++
+        } else {
+            row.remove()
+        }
+    })
+
+    //call function showTable to present data again
+    showTable(dates)
+
+
+    /*//create a new row to insert user input 
+    const newRow=document.createElement('tr')
+    document.querySelector("#logTable tbody").appendChild(newRow)
+
+    //loops through and creates td to input user info in corrresponding columns
+    for (let j=0;j<=5; j++){
+        const newData=document.createElement('td')
+        newData.textContent = dayinfo[j]
+    //appends each td to the tr 
+        newRow.appendChild(newData)
+    } */
+
+    }
+}
+
+/*you talked about making a function so I moved some of your code into a new function
+
+it will present data on the initial "#button" click, 
+and it will also present updated data when submit button is pressed.
+
+I commented the old code out in the two functions above just in case you don't want this function
+
+idk if this is the most efficient way to do this lol feel free to edit it if you dont like it!! */
+
+function showTable(dates) {
+    dates = dates.sort()
+
+    // retrieve the info that was already in the localStorage
+    for(let i=0; i<dates.length;i++){
+    //creates a tr for each key in the local storage 
+    const tr=document.createElement('tr')
+    document.querySelector("#logTable tbody").appendChild(tr)
+    //creates a td for each of the rows 
+    for (let j=0;j<=5; j++){
+        const td=document.createElement('td')
+        let value = localStorage.getItem(dates[i])
+        td.textContent = value.split(',')[j]
+        //appends each td to the tr 
+        tr.appendChild(td)
+        }
+    }
 }

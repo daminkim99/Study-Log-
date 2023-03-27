@@ -57,10 +57,10 @@
 				</nav>
 			</header>
 			<div class="main1">
-				<form action="#">
-					<div class="date"><input type="date"></div>
+				<form action="#" target="hiddenFrame">
+					<div class="date"><input type="date" required></div>
 					<div class="day">
-						<select name="day" id="day-select">
+						<select name="day" id="day-select" required>
 							<option value="">--Choose the day--</option>
 							<option value="Monday">Monday</option>
 							<option value="Tuesday">Tuesday</option>
@@ -72,7 +72,7 @@
 						</select>
 					</div>
 					<div class="progress">
-						<input id ="progress" type="text" placeholder="progress">
+						<input id ="progress" type="text" placeholder="progress" required>
 					</div>
 					<div class="anki">
 						<label for="anki" class="labelReset">Anki</label>
@@ -84,9 +84,9 @@
 					</div>
 					<div class="timer">
 						<label for="pomsession" class="labelReset">Num of pomodoro sessions (0-25): </label>
-						<input type="number" id="pomsession" name="pomsession" min="0" max="25">
+						<input type="number" id="pomsession" name="pomsession" min="0" max="25" required>
 					</div>
-					<button type="button" id="hDevsButton">Submit</button>
+					<button type="submit" id="hDevsButton">Submit</button>
 				</form>
 			</div>
 			<div class="devsTable">
@@ -105,6 +105,8 @@
 					</tbody>
 				  </table>
 			</div>
+
+			<iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe>
 
 			<footer>
 					<p class="copyright">&copy; Chloe | Elena Design: Elena | Chloe</p>
