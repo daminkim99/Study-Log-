@@ -77,7 +77,8 @@
 						</select>
 					</div>
 					<div class="progress">
-						<input id ="progress" type="text" placeholder="progress" required>
+						<textarea name="progress" id="progress" cols="30" rows="2" placeholder="progress" maxlength="60" required></textarea>
+						<!-- <input id ="progress" type="text" placeholder="progress" required> -->
 					</div>
 					<div class="anki">
 						<label for="anki" class="labelReset">Anki</label>
@@ -96,6 +97,7 @@
 			</div>
 			<div class="devsTable">
 				<table id="logTable">
+					<caption>Daily Log</caption>
 					<thead>
 					  <tr>
 						<th>Date</th>

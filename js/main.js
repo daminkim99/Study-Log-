@@ -49,25 +49,7 @@ document.getElementById('button').addEventListener('click', () => {
 
     //show data from local storage
     showTable(dates)
-/*
-    //sort the dates in calendar order 
-    dates = dates.sort()
-  
 
-    // retrieve the info that was already in the localStorage
-    for(let i=0; i<dates.length;i++){
-        //creates a tr for each key in the local storage 
-        const tr=document.createElement('tr')
-        document.querySelector("#logTable tbody").appendChild(tr)
-        //creates a td for each of the rows 
-        for (let j=0;j<=5; j++){
-            const td=document.createElement('td')
-            let value = localStorage.getItem(dates[i])
-            td.textContent = value.split(',')[j]
-        //appends each td to the tr 
-            tr.appendChild(td)
-        }
-    }*/
 })
 
 //getting values from Course form
@@ -97,13 +79,16 @@ document.querySelector('#hDevsButton').addEventListener('click', saveInfo)
 function saveInfo(){
 
     //if all the required fields are filled out
-     
-
     let date = document.querySelector('input[type="date"]').value
+
+    if (dates.includes(date)){
+        alert("Date already logged!")
+    } else{
+    // let date = document.querySelector('input[type="date"]').value
     let day = document.getElementById('day-select').value
     let progress= document.querySelector('#progress').value
-    let anki= document.getElementById('anki').checked ? 'checked':'unchecked'
-    let codewars= document.getElementById('codewars').checked ? 'checked':'unchecked'
+    let anki= document.getElementById('anki').checked ? 'yes':'no'
+    let codewars= document.getElementById('codewars').checked ? 'yes':'no'
     let pomodoro =  document.querySelector('#pomsession').value
     
 
@@ -118,7 +103,6 @@ function saveInfo(){
     dates.push(date)
 
 
-    
 
     //remove existing table
     const table = document.getElementById('logTable');
@@ -134,22 +118,9 @@ function saveInfo(){
     //call function showTable to present data again
     showTable(dates)
 
-
-    /*//create a new row to insert user input 
-    const newRow=document.createElement('tr')
-    document.querySelector("#logTable tbody").appendChild(newRow)
-
-    //loops through and creates td to input user info in corrresponding columns
-    for (let j=0;j<=5; j++){
-        const newData=document.createElement('td')
-        newData.textContent = dayinfo[j]
-    //appends each td to the tr 
-        newRow.appendChild(newData)
-    } */
-
     }
 }
-
+}
 /*you talked about making a function so I moved some of your code into a new function
 
 it will present data on the initial "#button" click, 
